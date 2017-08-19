@@ -47,7 +47,7 @@ $(document).ready(function(){
 });
 
 // Função para mostrar os campos obrigatorios
-/*$(document).ready(function(){
+$(document).ready(function(){
 
     // Valida o campo e troca a cor do campo Código do produto
     $('#codProduto').blur(function(e){
@@ -63,7 +63,7 @@ $(document).ready(function(){
     }),
 
     // Valida o campo e troca a cor Nome do Produto
-    $('#nomeProduto').blur(function(e){
+    $('#nomeProduto').keydown(function(e){
         nomeProduto = $('#nomeProduto').val();
 
         if(nomeProduto.length > 4){
@@ -102,7 +102,7 @@ $(document).ready(function(){
     }),
 
     // Função que troca a cor do campo e valida
-    $('#txtnome').blur(function(e){
+    $('#txtnome').keydown(function(e){
 
         if($('#txtnome').val().length > 7){
             $('#div_nome').removeClass("has-error");
@@ -112,18 +112,6 @@ $(document).ready(function(){
             $('#div_nome').addClass("has-error");
         }
     }),
-
-    // Troca a cor do campo RG
-    //$('#txtrg').blur(function(e){
-
-      //  if($('#txtrg').val().length >= 7){
-        //    $('#div_rg').removeClass("has-error");
-          //  $('#div_rg').addClass("has-success");
-        //}else{
-          //  $('#div_rg').removeClass("has-success");
-            //$('#div_rg').addClass("has-error");
-       // }
-    //}),
 
     // Troca a cor do campo Nivel de Acesso(combobox)
     $('#txtnivel').change(function(e){
@@ -191,8 +179,8 @@ $(document).ready(function(){
     }),
 
      // Valida o tamanho e troca a cor do campo endereço  
-    $('#txtendereco').blur(function(e){
-        endereco = $('#txtendereco').val();
+    $('#txtendereco').keypress(function(e){
+        var endereco = $('#txtendereco').val();
 
         if(endereco.length > 10){
             $('#div_endereco').removeClass("has-error");
@@ -204,9 +192,9 @@ $(document).ready(function(){
     }),
 
     $('#txtfone').blur(function(){
-        fone = $('#txtfone').val();
+        $('#txtfone').replaceAll('_','');
 
-        if(fone.length > 10){
+        if($('#txtfone').val().length > 10){
             $('#div_fone').removeClass("has-error");
             $('#div_fone').addClass("has-success");
         }else{
@@ -217,9 +205,9 @@ $(document).ready(function(){
 
     // Valida o tamanho e troca a cor do campo Numero.
     $('#txtnumero').blur(function(e){
-        numero = $('#txtnumero').val();
+        $('#txtnumero').replaceAll('_','');
 
-        if(numero.length > 1){
+        if($('#txtnumero').val().length > 0){
             $('#div_numero').removeClass("has-error");
             $('#div_numero').addClass("has-success");
         }else{
@@ -256,10 +244,10 @@ $(document).ready(function(){
 
     // Função de validação de e-mail e troca a cor do campo
     $('#txtemail').blur(function(e){
-        email = $('#txtemail').val();
-        filtro = /^[\w]+@[\w]+\.[\w|\.]+$/;;
+        var email = $('#txtemail').val();
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-        if(filtro.test(email) != " "){
+        if(filter.test(email)){
             $('#div_email').removeClass("has-error");
             $('#div_email').addClass("has-success");
         }else{
@@ -319,15 +307,15 @@ $(document).ready(function(){
             $('#div_senha').removeClass("has-success");
             $('#div_senha').addClass("has-error");
         }
-    });
-});*/
+    })
+});
 
 // Função de Validação do formulário.
 $(document).ready(function(){
     $("#codProduto").prop('required',true);
     $("#data").prop('required',true);
     $('#txtnome').prop('required',true);
-   // $('#txtrg').prop('required',true);
+    $('#txtrg').prop('required',false);
     $("#txtcpf").prop('required',true);
     $("#txtemail").prop('required',true);
     $('#txtsenha').prop('required',true);

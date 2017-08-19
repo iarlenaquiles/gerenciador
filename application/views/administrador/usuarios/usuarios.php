@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <h2 class="page-header">
                 Usuários
-                <a href="<?=base_url('administradorController/novoUsuario');?>" class="btn btn-primary pull-right">Novo Cliente</a>
+                <a href="<?=base_url('administradorController/novoUsuario');?>" class="btn btn-primary pull-right">Novo Usuário</a>
             </h2>
         </div>
     </div>

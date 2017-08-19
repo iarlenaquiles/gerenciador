@@ -40,6 +40,7 @@
             $dado['validade']       = implode('-',array_reverse(explode('/',$this->input->post('validade'))));
             $dado['quantidade']     = $this->input->post('quantidade');
             $dado['descricao']      = $this->input->post('descricao');
+            // date('Y-m-d',strtotime($this->input->post('validade')));
 
             return $this->db->insert('produto',$dado);
         }
