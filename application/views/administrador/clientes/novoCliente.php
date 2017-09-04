@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <form action="" method="POST" id="form">
+            <form action="<?=base_url('administradorController/insereCliente');?>" method="POST" id="form">
                 <div class="row">
                     <div class="col-md-12 form-group">
                         <label for="">Nome: </label>
@@ -29,9 +29,9 @@
                     </div>
                     <!-- CPF -->
                     <div class="col-md-6 form-group">
-                        <label for="">CPF: </label>
+                        <label for="">CPF/CNPJ: </label>
                         <div class="has-error" id="div_cpf">
-                            <input type="text" class="form-control" name="cpf" id="txtcpf" maxlength="14" data-mask="000.000.000-00" autocomplete="off">
+                            <input type="text" class="form-control" name="CpfCnpj" id="txtcpf" maxlength="14" data-mask="000.000.000-00" autocomplete="off">
                             <span class="help-block">Informe o número do CPF</span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="col-md-6 form-group">
                         <label for="">Data Nascimento</label>
                         <div class="has-error" id="div_data">
-                            <input type="text" name="nascimento" id="data" class="form-control"/>
+                            <input type="text" name="nascimentoCliente" id="data" class="form-control"/>
                             <span class="help-block">Informe a data de nascimento</span>
                         </div>
                     </div>

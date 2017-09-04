@@ -54,10 +54,17 @@ class Administradorcontroller extends CI_Controller {
     }
 
     // Função de chamada da interface(view) de listagem de Clientes
-    public function clientes(){
+    public function clientes($indice=null){
 
         $this->load->view('administrador/includes/header');
         $this->load->view('administrador/includes/menu');
+        if($indice == 1){
+            $msg['msg'] = "Cliente Cadastrado com Sucesso!";
+            $this->load->view('administrador/msg/msg_success',$msg);
+        }else if($indice == 2){
+            $msg['msg'] = "Cliente não Cadastrado, Desculpe!";
+            $this->load->view('administrador/msg/msg_erro',$msg);
+        }
         $this->load->view('administrador/clientes/list-clientes');
         $this->load->view('administrador/includes/footer');
     }
@@ -70,6 +77,17 @@ class Administradorcontroller extends CI_Controller {
         $this->load->view('administrador/clientes/novoCliente');
         $this->load->view('administrador/includes/footer');
 
+    }
+
+    // Função que chama o model de inserção do cliente
+    public function insereCliente(){
+        $this->load->model('administradorModel','novoCliente');
+
+        if($this->novoCliente->insereCliente()){
+            redirect('clientes/1');
+        }else{
+            redirect('clientes/2');
+        }
     }
 
     // Função de chamada da página de Fornecedores

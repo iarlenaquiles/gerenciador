@@ -25,3 +25,25 @@ CREATE TABLE produto(
     quantidade varchar(255) not null,
     descricao varchar(255) not null
 );
+
+CREATE TABLE cliente(
+    idcliente int not null primary key auto_increment,
+    nomeCliente varchar(255) not null,
+    rg varchar(10),
+    CpfCnpj varchar(20) not null UNIQUE,
+    nascimentoCliente date not null,
+    email varchar(255) UNIQUE not null,
+    telefone varchar(12) not null,
+    sexo char(1) not null,
+    endereco varchar(255) not null,
+    numero varchar(10) not null,
+    complemento varchar(200),
+    cep varchar(11) not null,
+    uf char(2) not null,
+    cidade varchar(150) not null,
+    bairro varchar(150) not null,
+    dtcadastro datetime not null DEFAULT CURRENT_TIMESTAMP,
+    dtAlteraCad datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- campo provisório
+);
+
+ALTER TABLE cliente ADD CONSTRAINT CK_SEXO CHECK(sexo in('M','F'));

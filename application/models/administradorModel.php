@@ -49,5 +49,31 @@
             $this->db->where('idProduto',$id);
             return $this->db->delete('produto');
         }
+
+        // Função de inserção de clientes no banco de dados
+        public function insereCliente(){
+            $insere['nomeCliente']          = $this->input->post('nomeCliente');
+            $insere['rg']                   = $this->input->post('rg');
+            $insere['CpfCnpj']              = $this->input->post('CpfCnpj');
+            $insere['nascimentoCliente']    = implode('-',array_reverse(explode('/',$this->input->post('nascimentoCliente'))));
+            $insere['email']                = $this->input->post('email');
+            $insere['telefone']             = $this->input->post('telefone');
+            $insere['sexo']                 = $this->input->post('sexo');
+            $insere['endereco']             = $this->input->post('endereco');
+            $insere['numero']               = $this->input->post('numero');
+            $insere['complemento']          = $this->input->post('complemento');
+            $insere['cep']                  = $this->input->post('cep');
+            $insere['uf']                   = $this->input->post('uf');
+            $insere['cidade']               = $this->input->post('cidade');
+            $insere['bairro']               = $this->input->post('bairro');
+
+            return $this->db->insert('cliente',$insere);
+        }
+
+        // Função de listagem de clientes
+        public function listaClientes(){
+            $this->db->select('*');
+        	return $this->db->get('cliente')->result();
+        }
     }
 ?>
