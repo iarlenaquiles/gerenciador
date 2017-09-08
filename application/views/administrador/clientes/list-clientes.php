@@ -20,27 +20,50 @@
                         <th>E-Mail</th>
                         <th>Telefone</th>
                         <th>Sexo</th>
-                        <th>CEP</th>
                         <th>UF</th>
                         <th>Cidade</th>
-                        <th>Bairro</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
+                <?php
+                    foreach($cliente as $clientes){
+                        $id             = $clientes->idcliente;
+                        $nome           = $clientes->nomeCliente;
+                        $rg             = $clientes->rg;
+                        $cpfcnpj        = $clientes->CpfCnpj;
+                        $nascimento     = $clientes->nascimentoCliente;
+                        $email          = $clientes->email;
+                        $telefone       = $clientes->telefone;
+                        $sexo           = $clientes->sexo;
+                        $uf             = $clientes->uf;
+                        $cidade         = $clientes->cidade;
+                ?>
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?=$nome;?></td>
+                        <?php if($rg != " "):?>
+                            <td>Não tem</td>    
+                        <?php else:?>
+                            <td><?=$rg;?></td>
+                        <?php endif;?>
+                        <td><?=$cpfcnpj;?></td>
+                        <td><?=date('d/m/Y',strtotime($nascimento));?></td>
+                        <td><?=$email;?></td>
+                        <td><?=$telefone;?></td>
+                        <td><?=$sexo==$sexo?$sexo:$sexo;?></td>
+                        <td><?=$uf==$uf?$uf:$uf;?></td>
+                        <td><?=$cidade;?></td>
+                        <td>
+                            <a href="<?=base_url('administradorController/atualizaCliente/' . $id);?>" class="btn btn-primary btn-sm btn-group" onclick="return confirm('Deseja atualizar o cliente?');">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </a>
+                            <a href="<?=base_url('administradorController/inativaCliente/' . $id);?>" class="btn btn-warning btn-sm btn-group" onclick="return confirm('Deseja Inativar o cliente?');">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
+                <?php } ?>
                 <tfoot>
                     <tr>
                         <th>Nome</th>
@@ -50,10 +73,9 @@
                         <th>E-Mail</th>
                         <th>Telefone</th>
                         <th>Sexo</th>
-                        <th>CEP</th>
                         <th>UF</th>
                         <th>Cidade</th>
-                        <th>Bairro</th>
+                        <th>Ações</th>
                     </tr>
                 </tfoot>
             </table>

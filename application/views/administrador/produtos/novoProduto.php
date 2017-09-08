@@ -40,11 +40,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 form-group">
+                    <div class="col-md-6 form-group">
                         <label for="">Descrição: </label>
                         <div class="has-error" id="div_desc">
                             <input type="text" name="descricao" id="txtdesc" class="form-control"/>
                             <span class="help-block">Informe uma breve descrição</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="">Categoria: </label>
+                        <div class="has-error" id="div_categoria">
+                            <select name="id_categoria" id="selcategoria" class="form-control">
+                            <option value disabled="true" selected="true">---------</option>
+                            <?php foreach($categoria as $categorias):?>
+                                <option value="<?=$categorias->idcategoria?>"><?=$categorias->nomeCategoria?></option>
+                            <?php endforeach;?>
+                            </select>
                         </div>
                     </div>
                 </div>

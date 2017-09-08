@@ -307,6 +307,45 @@ $(document).ready(function(){
             $('#div_senha').removeClass("has-success");
             $('#div_senha').addClass("has-error");
         }
+    }),
+
+    // Função de troca de cor para categoria
+    $('#txtcategoria').keydown(function(e){
+        categoria = $('#txtcategoria').val();
+
+        if(categoria.length > 3){
+            $("#div_categoria").removeClass("has-error");
+            $("#div_categoria").addClass("has-success");
+        }else{
+            $("#div_categoria").removeClass("has-success");
+            $("#div_categoria").addClass("has-error");
+        }
+    }),
+
+    // Função de troca de cor para o campo descrição
+    $('#txtdescricao').keydown(function(e){
+        descricao = $('#txtdescricao').val();
+
+        if(descricao.length > 3){
+            $('#div_descricao').removeClass('has-error');
+            $('#div_descricao').addClass('has-success');
+        }else{
+            $('#div_descricao').removeClass('has-success');
+            $('#div_descricao').addClass('has-error');
+        }
+    }),
+
+    // Função de troca de cor do select categoria
+    $('#selcategoria').change(function(e){
+        select = $('#selcategoria option:selected').val();
+
+        if(select != " "){
+            $('#div_categoria').removeClass('has-error');
+            $('#div_categoria').addClass('has-success');
+        }else{
+            $('#div_categoria').removeClass('has-success');
+            $('#div_categoria').addClass('has-error');
+        }
     })
 });
 
@@ -330,4 +369,6 @@ $(document).ready(function(){
     $('#txtbairro').prop('required',true);
     $('#txtnomefantasia').prop('required',true);
     $('#txtrazaosocial').prop('required',true);
+    $('#txtcategoria').prop('required',true);
+    $('#txtdescricao').prop('required',true);
 });

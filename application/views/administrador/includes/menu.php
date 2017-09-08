@@ -34,6 +34,7 @@
             <li><a href="<?=base_url('administradorController/clientes')?>">Clientes</a></li>
             <li><a href="<?=base_url('administradorController/fornecedores');?>">Fornecedores</a></li>
             <li><a href="<?=base_url('administradorController/produtos'); ?>">Produtos</a></li>
+            <li><a href="<?=base_url('administradorController/categorias');?>">Categorias</a></li>
             <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Relatórios<span class="caret"></span>

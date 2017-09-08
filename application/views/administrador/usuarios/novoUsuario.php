@@ -60,11 +60,11 @@
                 <div class="col-md-6 form-group">
                     <label for="">Nivel de Acesso: </label>
                     <div class="has-error" id="div_nivel">
-                        <select name="nivelAcesso" id="txtnivel" class="form-control">
+                        <select name="id_nivel" id="txtnivel" class="form-control">
                             <option value disabled="true" selected="true">---------</option>
-                            <option value="A">Administrador</option>
-                            <option value="G">Gestor</option>
-                            <option value="F">Funcionário</option>
+                            <?php foreach($nivelAcesso as $nivel): ?>
+                            <option value="<?=$nivel->idnivel?>"><?=$nivel->descricao;?></option>
+                            <?php endforeach;?>
                         </select>
                         <span class="help-block">Selecione um Nível de Acesso</span>
                     </div>

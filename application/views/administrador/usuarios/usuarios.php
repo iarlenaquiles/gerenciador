@@ -18,18 +18,40 @@
                         <th>E-Mail</th>
                         <th>Nível</th>
                         <th>Ativo</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <?php
                     foreach($usuario as $usuarios){
+                        $id = $usuarios->idUsuario;
+                        $nome = $usuarios->nomeUsuario;
+                        $cpf = $usuarios->cpfUsuario;
+                        $email = $usuarios->email;
+                        $nivel = $usuarios->id_nivel;
+                        $ativo = $usuarios->ativo;
                 ?>
                 <tbody>
                     <tr>
-                        <td><?=$usuarios->nomeUsuario;?></td>
-                        <td><?=$usuarios->cpfUsuario;?></td>
-                        <td><?=$usuarios->email;?></td>
-                        <td><?=$usuarios->nivelAcesso=='A'?'Administrador':'Gestor';?></td>
-                        <td><?=$usuarios->ativo=='1'?'Ativo':'Inativo';?></td>
+                        <td><?=$nome;?></td>
+                        <td><?=$cpf;?></td>
+                        <td><?=$email;?></td>
+                        <!-- Verificando o nivel de acesso do Usuário -->
+                        <?php if($nivel=='1'): ?>
+                                <td>Administrador</td>
+                        <?php elseif($nivel=='2'): ?>
+                                <td>Gestor</td>
+                        <?php else:?>
+                                <td>Funcionário</td>
+                        <?php endif;?>
+                        <td><?=$ativo=='1'?'Ativo':'Inativo';?></td>
+                        <td>
+                            <a href="<?=base_url('administradorController/inatUsuario/' . $id);?>" class="btn btn-warning btn-sm btn-group" title="Inativar" onclick="return confirm('Deseja realmente inativar o usuario?');">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                            <a href="<?=base_url('administradorController/atiUsuario/' . $id);?>" class="btn btn-success btn-sm btn-group" title="Ativar" onclick="return confirm('Deseja realmente ativar o usuario?');">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </a>
+                        </td>
                     </tr>
                 </tbody>
                 <?php } ?>
@@ -40,6 +62,7 @@
                         <th>E-Mail</th>
                         <th>Nível</th>
                         <th>Ativo</th>
+                        <th>Ações</th>
                     </tr>
                 </tfoot>
             </table>

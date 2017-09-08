@@ -26,6 +26,18 @@ class Administradorcontroller extends CI_Controller {
         }else if($indice == 2){
             $msg['msg'] = "Usuário não cadastrado. Desculpe, entre em contato com o administrador do sistema!";
             $this->load->view('administrador/msg/msg_erro',$msg);
+        }else if($indice == 3){
+            $msg['msg'] = "Usuário inativado com sucesso!";
+            $this->load->view('administrador/msg/msg_success',$msg);
+        }else if($indice == 4){
+            $msg['msg'] = "Usuário não inativado. Desculpe, entre em contato com o administrado do sistema!";
+            $this->load->view('administrador/msg/msg_erro',$msg);
+        }else if($indice == 5){
+            $msg['msg']= "Usuário Ativo com Sucesso!";
+            $this->load->view('administrador/msg/msg_success',$msg);
+        }else if($indice == 6){
+            $msg['msg'] = "Usuário não ativo. Desculpe, entre em contato com o administrador do sistema!";
+            $this->load->view('administrador/msg/msg_erro',$msg);
         }
         $this->load->view('administrador/usuarios/usuarios',$lista); // chamada da página de Usuários.
         $this->load->view('administrador/includes/footer'); // chamada do rodapé da página.
@@ -34,10 +46,12 @@ class Administradorcontroller extends CI_Controller {
 
     // Função de chamada da página de Novo Usuário
     public function novoUsuario(){
-        
+        $this->load->model('administradorModel','dinamic');
+        $data['nivelAcesso'] = $this->dinamic->dinamicSelect();
+
         $this->load->view('administrador/includes/header');
         $this->load->view('administrador/includes/menu');
-        $this->load->view('administrador/usuarios/novoUsuario');
+        $this->load->view('administrador/usuarios/novoUsuario',$data);
         $this->load->view('administrador/includes/footer');
 
     }
@@ -53,8 +67,31 @@ class Administradorcontroller extends CI_Controller {
         }
     }
 
+    public function inatUsuario($id=null){
+        $this->load->model('administradorModel','usuario');
+
+        if($this->usuario->inatUsuario($id)){
+            redirect('usuario/3');
+        }else{
+            redirect('usuario/4');
+        }
+    }
+
+    public function atiUsuario($id=null){
+        $this->load->model('administradorModel','usuario');
+        
+        if($this->usuario->atiUsuario($id)){
+            redirect('usuario/5');
+        }else{
+            redirect('usuario/6');
+        }
+    }
+
     // Função de chamada da interface(view) de listagem de Clientes
     public function clientes($indice=null){
+
+        $this->load->model('administradorModel','cliente');
+        $lista['cliente'] = $this->cliente->listaClientes();
 
         $this->load->view('administrador/includes/header');
         $this->load->view('administrador/includes/menu');
@@ -65,7 +102,7 @@ class Administradorcontroller extends CI_Controller {
             $msg['msg'] = "Cliente não Cadastrado, Desculpe!";
             $this->load->view('administrador/msg/msg_erro',$msg);
         }
-        $this->load->view('administrador/clientes/list-clientes');
+        $this->load->view('administrador/clientes/list-clientes',$lista);
         $this->load->view('administrador/includes/footer');
     }
 
@@ -157,10 +194,12 @@ class Administradorcontroller extends CI_Controller {
 
     // Função de chamada que carrega a interface(view) de cadastro de um novo produto
     public function novoProduto(){
+        $this->load->model('administradorModel','dinamic');
+        $data['categoria'] = $this->dinamic->dinamicCategoria();
 
         $this->load->view('administrador/includes/header');
         $this->load->view('administrador/includes/menu');
-        $this->load->view('administrador/produtos/novoProduto');
+        $this->load->view('administrador/produtos/novoProduto',$data);
         $this->load->view('administrador/includes/footer');
     
     }
@@ -186,6 +225,43 @@ class Administradorcontroller extends CI_Controller {
             redirect('produtos/3');
         }else{
             redirect('produtos/4');
+        }
+    }
+
+    // carrega a view de categorias
+    public function categorias($indice=null){
+        $this->load->model('administradorModel','categorias');
+        $categoria['categorias'] = $this->categorias->selectCategoria();
+
+        $this->load->view('administrador/includes/header');
+        $this->load->view('administrador/includes/menu');
+        if($indice == 1){
+            $msg['msg'] = "Categoria Cadastrado com Sucesso!";
+            $this->load->view('administrador/msg/msg_success',$msg);
+        }else if($indice == 2){
+            $msg['msg'] = "Categoria não cadastrada. Desculpe, entre em contato com o administrador do sistema!";
+            $this->load->view('administrador/msg/msg_erro',$msg);
+        }
+        $this->load->view('administrador/categoria/categorias', $categoria);
+        $this->load->view('administrador/includes/footer');
+    }
+
+    // Carrega a view de nova categoria
+    public function novaCategoria(){
+        $this->load->view('administrador/includes/header');
+        $this->load->view('administrador/includes/menu');
+        $this->load->view('administrador/categoria/NovaCategoria');
+        $this->load->view('administrador/includes/footer');
+    }
+
+    // Função que insere a categoria no banco de dados
+    public function InsereCategoria(){
+        $this->load->model('administradorModel','categoria');
+
+        if($this->categoria->InsereCategoria()){
+            redirect('categorias/1');
+        }else{
+            redirect('categorias/2');
         }
     }
 
