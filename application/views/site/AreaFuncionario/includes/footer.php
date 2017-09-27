@@ -7,6 +7,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="<?=base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?=base_url('assets/js/jquery.mask.js');?>"></script>
+    <script src="<?=base_url('assets/js/scripts.js');?>"></script>
+    <script src="<?=base_url('assets/sweetAlert/js/sweetalert.min.js');?>"></script>
+    <script src="<?=base_url('assets/sweetAlert/js/script_sweet.js');?>"></script>
     <script src="<?=base_url('assets/js/bootstrap.min.js'); ?>"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="<?=base_url('assets/js/holder.min.js'); ?>"></script>

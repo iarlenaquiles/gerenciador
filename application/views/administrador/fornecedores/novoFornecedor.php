@@ -6,14 +6,14 @@
     </div><!-- Fim da Row -->
 
     <div class="row">
-        <form action="" method="POST">
+        <form action="<?=base_url('administradorController/insereFornecedor');?>" method="POST">
             
             <div class="row">
                 <!-- Nome Fantasia -->
                 <div class="col-md-6 form-group">
                     <label for="">Nome Fantasia: </label>
                     <div class="has-error" id="div_nomeFantasia">
-                        <input type="text" name="nomeFantasia" class="form-control" id="txtnomefantasia" autofocus/>
+                        <input type="text" name="nomeFantasia" class="form-control" id="txtnomefantasia" autofocus required=""/>
                         <span class="help-block">Informe o Nome Fantasia</span>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="col-md-6 form-group">
                     <label for="">Razão Social: </label>
                     <div class="has-error" id="div_razaoSocial">
-                        <input type="text" name="razaoSocial" class="form-control" id="txtrazaosocial"/>
+                        <input type="text" name="razaoSocial" class="form-control" id="txtrazaosocial" required=""/>
                         <span class="help-block">Informe a Razão Social</span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-6 form-group">
                     <label for="">CNPJ: </label>
                     <div class="has-error" id="div_cnpj">
-                        <input type="text" name="cnpj" class="form-control" id="txtcnpj"/>
+                        <input type="text" name="cnpj" class="form-control" id="txtcnpj" required=""/>
                         <span class="help-block">Informe o CNPJ</span>
                     </div>
                 </div>
@@ -40,7 +40,8 @@
                 <div class="col-md-6 form-group">
                     <label for="">Data de Criação: </label>
                     <div class="has-error" id="div_data">
-                        <input type="text" name="dataCriacao" class="form-control" id="data"/>
+                        <input type="text" name="dataCriacao" class="form-control" id="data" required=""/>
+                        <span class="help-block">Informe a data de criação</span>
                     </div>
                 </div>
             </div><!-- Fim da Row -->
@@ -85,22 +86,19 @@
 
             <div class="row">
                 <!-- Complemento do endereço da empresa -->
-                <div class="col-md-8 form-group">
+                <div class="col-md-6 form-group">
                     <label for="">Complemento: </label>
                     <input type="text" name="complemento" class="form-control"/>
                     <span class="help-block">Informe o Complemento do Endereço</span>
                 </div>
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <label for="">CEP.: </label>
                     <div class="has-error" id="div_cep">
                         <input type="text" name="cep" class="form-control" id="txtcep"/>
                         <span class="help-block">Informe o CEP</span>
                     </div>
                 </div>
-            </div><!-- Fim da Row -->
-
-            <div class="row">
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <label for="">UF.:</label>
                     <div class="has-error" id="div_uf">
                         <select name="uf" id="txtuf" class="form-control">
@@ -135,6 +133,9 @@
                         <span class="help-block">Informe a UF</span>
                     </div>
                 </div>
+            </div><!-- Fim da Row -->
+
+            <div class="row">                
                 <!-- Cidade -->
                 <div class="col-md-4 form-group">
                     <label for="">Cidade: </label>
@@ -149,6 +150,16 @@
                     <div class="has-error" id="div_bairro">
                         <input type="text" name="bairro" class="form-control" id="txtbairro"/>
                         <span class="help-block">Informe o Bairro</span>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="">Ativo: </label>
+                    <div class="has-error" id="div_ativo">
+                        <select name="ativo" id="txtativo" class="form-control">
+                        <option value disabled="true" selected="true">Selecione o Status</option>
+                            <option value="1">Ativo</option>
+                            <option value="0">Inativo</option>
+                        </select>
                     </div>
                 </div>
             </div><!-- Fim da Row -->

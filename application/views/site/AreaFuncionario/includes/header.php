@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css'); ?>"/>
     <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
     <link rel="stylesheet" href="<?=base_url('assets/css/ie10-viewport-bug-workaround.css'); ?>"/>
+    <link rel="stylesheet" href="<?=base_url('assets/sweetAlert/css/sweetalert.css');?>">
 
     <script src="<?=base_url('assets/js/ie-emulation-modes-warning.js'); ?>"></script>
 
@@ -20,5 +21,5 @@
     <![endif]-->
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
     

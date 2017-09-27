@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?=base_url();?>">Seu negócio SobControle</a>
+            <a class="navbar-brand inicial" href="<?=base_url();?>">Seu negócio Sob Controle</a>
             </div>
 
             <!-- MENU -->
@@ -20,8 +20,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas Restritas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=base_url('siteController/AreaCliente');?>">Área do Cliente</a></li>
-                            <li><a href="<?=base_url('siteController/AreaFornecedor');?>">Área do Fornecedor</a></li>
+                            <li><a href="<?=base_url('siteController/Area');?>">Área do Cliente</a></li>
                             <li><a href="<?=base_url('siteController/AreaFuncionario');?>">Área do Funcionário</a></li>
                         </ul>
                     </li>

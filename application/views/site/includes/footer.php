@@ -1,6 +1,6 @@
         <div class="row">
             <div class="col-md-12 footer">
-                <p>&#174; - Todos os Direitos Reservados - Equipe IX</p>
+                <p>&#174; - Todos os Direitos Reservados - Desenvolvido pela Equipe XI</p>
             </div>
         </div>
     </div>

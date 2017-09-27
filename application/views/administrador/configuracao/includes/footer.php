@@ -3,6 +3,8 @@
     <script src="<?=base_url('assets/js/jquery.min.js'); ?>"></script>
     <script src="<?=base_url('assets/js/jquery.mask.js');?>"></script>
     <script src="<?=base_url('assets/js/scripts.js');?>"></script>
+    <script src="<?=base_url('assets/sweetAlert/js/sweetalert.min.js');?>"></script>
+    <script src="<?=base_url('assets/sweetAlert/js/script_sweet.js');?>"></script>
     <script src="<?=base_url('assets/js/jquery.validate.min.js');?>"></script>
     <script src="<?=base_url('assets/js/additional-methods.min.js');?>"></script>
     <script src="<?=base_url('assets/js/validate.js');?>"></script>
@@ -35,6 +37,32 @@
                  $('#div_data').removeClass("has-success");
                  $('#div_data').addClass("has-error");
               }
+          }
+      });
+
+      // Função pra validade da tela de produtos.
+      $('#txtdata').datepicker({
+          format: 'dd/mm/yyyy',
+          language: 'pt-BR',
+          //weekStart: 0,
+          //startDate:'0d',
+          clearDates: true,
+          todayHighlight: true,
+          //defaultViewDate: 'year',
+          nextText: 'Proximo',
+          prevText: 'Anterior',
+          onclose: function(){
+
+            Data = $('#txtdata').val();
+            
+            if(ValidaData(Data) != ""){
+                $('#div_Data').removeClass("has-error");
+                $('#div_Data').addClass("has-success");
+            }else{
+                alert('Data inválida ou campo vázio, por favor digite uma data válida!');
+                $('#div_Data').removeClass("has-success");
+                $('#div_Data').addClass("has-error");
+            }
           }
       });
 

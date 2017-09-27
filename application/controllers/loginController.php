@@ -5,10 +5,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Logincontroller extends CI_Controller {
     
-    public function index(){
-        $this->load->view('login/includes/header');
-        $this->load->view('login/login');
-        $this->load->view('gestor/includes/footer');
+    public function Session_funcionario(){
+        if($this->session->userdata('logado') == false){
+            redirect('siteController/AreaFuncionario');
+        }
+    }
+
+    // Função pra verificar na sessão o nivel de acesso
+    public function verificarNivel(){
+        $this->load->model('loginModel','usuarios');
+
+        if($this->usuarios->LogartUsuario()){
+            // Verifica se existe a sessão
+            if(isset($_SESSION['id_nivel'])){
+                
+                // Atribui uma variavel para session
+                $nivel = $_SESSION['id_nivel'];
+
+                if($nivel == '1'){ // Verifica se o nível é administrador
+
+                    redirect('administradorController'); // Redireciona para a área do administrador
+                
+                }else if($nivel == '2'){ // Verifica se o nível é gestor
+                
+                    redirect('gestorController'); // Redireciona para a área do gestor
+                
+                }else if($nivel == '3'){ // Verifica se o nível é funcionário
+                
+                    redirect('funcionarioController'); // Redireciona para a área do funcionário
+                
+                }
+            }
+        }else{ // Caso não seja nenhum dos niveis, retorna para tela de login
+            redirect('siteController/AreaFuncionario/1'); // Redireciona para tela de login
+        }
     }
 }
 ?>

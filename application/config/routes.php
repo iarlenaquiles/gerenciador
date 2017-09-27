@@ -49,11 +49,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']    = "administradorController";
+$route['default_controller']    = "siteController";
 $route['produtos/(:num)']       = "funcionarioController/produtos/$1";
 $route['produtos/(:num)']       = "administradorController/produtos/$1";
+$route['produtos/p']             = "administradorController/produtos";
+$route['produtos/p/(:num)']      = "administradorController/produtos";
 $route['usuario/(:num)']        = "administradorController/usuario/$1";
+$route['usuario/p']             = "administradorController/usuario";
+$route['usuario/p/(:num)']      = "administradorController/usuario";
 $route['clientes/(:num)']       = "administradorController/clientes/$1";
+$route['clientes/p']             = "administradorController/clientes";
+$route['clientes/p/(:num)']      = "administradorController/clientes";
+$route['fornecedores/(:num)']   = "administradorController/fornecedores/$1";
+$route['fornecedores/p']             = "administradorController/fornecedores";
+$route['fornecedores/p/(:num)']      = "administradorController/fornecedores";
 $route['categorias/(:num)']     = "administradorController/categorias/$1";
+$route['categorias/p']             = "administradorController/categorias";
+$route['categorias/p/(:num)']      = "administradorController/categorias";
+$route['LoginCliente/(:num)']   = "siteController/LoginCliente/$1";
+$route['LogarCliente/(:num)']   = "siteController/LogarCliente/$1";
+$route['LogarUsuario/(:num)']   = "siteController/LogarUsuario/$1";
+$route['verificarNivel']        = "loginController/verificarNivel";
+$route['get_datatable_data']    = "administradorController/DataTableDinamico";
 $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;

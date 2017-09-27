@@ -38,6 +38,32 @@
           }
       });
 
+      // Função pra validade da tela de produtos.
+      $('#txtdata').datepicker({
+          format: 'dd/mm/yyyy',
+          language: 'pt-BR',
+          //weekStart: 0,
+          //startDate:'0d',
+          clearDates: true,
+          todayHighlight: true,
+          //defaultViewDate: 'year',
+          nextText: 'Proximo',
+          prevText: 'Anterior',
+          onclose: function(){
+
+            Data = $('#txtdata').val();
+            
+            if(ValidaData(Data) != ""){
+                $('#div_Data').removeClass("has-error");
+                $('#div_Data').addClass("has-success");
+            }else{
+                alert('Data inválida ou campo vázio, por favor digite uma data válida!');
+                $('#div_Data').removeClass("has-success");
+                $('#div_Data').addClass("has-error");
+            }
+          }
+      });
+
       $('.input-daterange').each(function(){
         $(this).datepicker({
           format: 'dd/mm/yyyy',

@@ -7,7 +7,22 @@
             </h2>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-12">
+            <form action="<?=base_url('administradorController/usuario');?>" method="POST">
+                <div class="row">
+                    <div class="col-md-10 form-group">
+                        <input type="text" name="busca" class="form-control" placeholder="Pesquisa Usuarios?"/>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <button type="button" class="btn btn-primary btn-block" title="Pesquisar">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row">
          <div class="col-md-12">
             <table class="table table-striped table-cordered" cellspacing="0" width="100%">
@@ -23,12 +38,12 @@
                 </thead>
                 <?php
                     foreach($usuario as $usuarios){
-                        $id = $usuarios->idUsuario;
-                        $nome = $usuarios->nomeUsuario;
-                        $cpf = $usuarios->cpfUsuario;
-                        $email = $usuarios->email;
-                        $nivel = $usuarios->id_nivel;
-                        $ativo = $usuarios->ativo;
+                        $id     = $usuarios->idUsuario;
+                        $nome   = $usuarios->nomeUsuario;
+                        $cpf    = $usuarios->cpfUsuario;
+                        $email  = $usuarios->email;
+                        $nivel  = $usuarios->id_nivel;
+                        $ativo  = $usuarios->ativo;
                 ?>
                 <tbody>
                     <tr>
@@ -49,8 +64,8 @@
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </a>
                             <a href="<?=base_url('administradorController/atiUsuario/' . $id);?>" class="btn btn-success btn-sm btn-group" title="Ativar" onclick="return confirm('Deseja realmente ativar o usuario?');">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </a>
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
@@ -66,6 +81,7 @@
                     </tr>
                 </tfoot>
             </table>
+            <?=$pagination;?>
         </div>
     </div>
 </div>

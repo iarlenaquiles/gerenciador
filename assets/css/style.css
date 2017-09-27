@@ -1,4 +1,29 @@
-.footer{text-align: center; font-weight: bold; font-size: 16px;}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
-.page-header h1{font-size: 25px; font-weight: bold; text-align: center}
-.page-header p{font-size: 20px; text-align: justify;}
+/*-------- Define a fonte padrão --------*/
+body,*{font-family: 'Open Sans', sans-serif;}
+p{color:#000000;}
+h1,h2,h3,h4,h5{color:#000000;}
+
+/*-------- FOOTER --------*/
+.footer{text-align: center; font-weight:700; font-size: 0.9em; margin-top:40px; padding-top:30px; text-transform: uppercase; border-top: 1px solid #eee;}
+
+/*-------- CARDS DO SITE --------*/
+.titulo h2{font-size: 1.4em; font-weight:600; text-align: center;}
+.titulo p{text-align: justify; font-weight:400;}
+
+/*-------- JUMBOTRON INICIAL DO SITE --------*/
+.jumbotron{text-align: center; background-color: transparent; border-bottom: 1px solid #eee; margin-bottom:20px; padding-bottom: 25px;}
+.jumbotron h1{font-weight:700; font-size: 2.5em; text-align:center; color:#000000;}
+.jumbotron p{font-size: 1.4em; font-weight:600; text-align: center; margin-left: 20%; margin-right: 20%; color:#000000;}
+
+/*-------- NOME DO SITE TOPO --------*/
+.inicial{text-transform: uppercase; font-weight: 700; font-size: 1.1em;}
+
+/*-------- Área do Cliente --------*/
+.cliente{border-bottom:1px solid #eee; font-weight: 700; font-size: 1.5em; margin-bottom: 20px; padding-bottom: 20px;}
+.text-justify{text-align: justify;}
+.text-center{text-align: center;}
+.text-center .btn-success{color:#FFFFFF; background-color:#38b44a; border-color:#38b44a;}
+.text-center .btn-danger{color:#FFFFFF; background-color:#df382c; border-color:#df382c;}
+.novo h2{border-bottom:1px solid #eee;}

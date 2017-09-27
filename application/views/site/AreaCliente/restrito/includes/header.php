@@ -2,16 +2,15 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Sistema de Gerenciamento de Clientes"/>
     <meta name="author" content="Huriel Correia Lopes"/>
-	<title>Gerenciador de Clientes</title>
+	<title>Site - Seu negócio sobControle</title>
 	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css'); ?>"/>
+    <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
     <link rel="stylesheet" href="<?=base_url('assets/css/ie10-viewport-bug-workaround.css'); ?>"/>
-    <link rel="stylesheet" href="<?=base_url('assets/css/painel.css'); ?>"/>
-    <link rel="stylesheet" href="<?=base_url('assets/css/login.css');?>">
-    <link rel="stylesheet" href="<?=base_url('assets/css/bootstrap-datepicker.css');?>">
+    <link rel="stylesheet" href="<?=base_url('assets/sweetAlert/css/sweetalert.css');?>">
 
     <script src="<?=base_url('assets/js/ie-emulation-modes-warning.js'); ?>"></script>
 
@@ -22,3 +21,5 @@
     <![endif]-->
 </head>
 <body>
+    <div class="container-fluid">
+    

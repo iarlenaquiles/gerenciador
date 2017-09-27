@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?=base_url('assets/css/ie10-viewport-bug-workaround.css'); ?>"/>
     <link rel="stylesheet" href="<?=base_url('assets/css/painel.css'); ?>"/>
     <link rel="stylesheet" href="<?=base_url('assets/css/bootstrap-datepicker.css');?>">
-
+    <link rel="stylesheet" href="<?=base_url('assets/sweetAlert/css/sweetalert.css');?>">
     
     <script src="<?=base_url('assets/js/ie-emulation-modes-warning.js'); ?>"></script>
 

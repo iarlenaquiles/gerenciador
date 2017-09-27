@@ -9,9 +9,15 @@ class Funcionariocontroller extends CI_Controller {
     
     }
     
+    public function Session_funcionario(){
+        if($this->session->userdata('logado') == false){
+            redirect('siteController/AreaFuncionario');
+        }
+    }
+
     // Função de chamada da página principal
     public function index(){
-
+        $this->Session_funcionario();
         $this->load->view('funcionario/includes/header');
         $this->load->view('funcionario/includes/menu');
         $this->load->view('funcionario/funcionario');
@@ -21,7 +27,7 @@ class Funcionariocontroller extends CI_Controller {
 
     // Função de chamada da página de Clientes
     public function clientes(){
-
+        $this->Session_funcionario();
         $this->load->view('funcionario/includes/header');
         $this->load->view('funcionario/includes/menu');
         $this->load->view('funcionario/clientes/list-clientes');
@@ -29,7 +35,7 @@ class Funcionariocontroller extends CI_Controller {
     }
 
     public function novoCliente(){
-
+        $this->Session_funcionario();
         $this->load->view('funcionario/includes/header');
         $this->load->view('funcionario/includes/menu');
         $this->load->view('funcionario/clientes/novoCliente');
@@ -39,7 +45,7 @@ class Funcionariocontroller extends CI_Controller {
 
     // Função de chamada da página de Fornecedores
     public function fornecedores(){
-        
+        $this->Session_funcionario();
         $this->load->view('funcionario/includes/header');
         $this->load->view('funcionario/includes/menu');
         $this->load->view('funcionario/fornecedores/listfornecedores');
@@ -49,6 +55,7 @@ class Funcionariocontroller extends CI_Controller {
 
     // Função de chamada da página de Produtos
     public function produtos($indice=null){
+        $this->Session_funcionario();
         $this->load->model('funcionarioModel','produtos');
         $lista['produtos'] = $this->produtos->listProduto(); 
 
@@ -74,7 +81,7 @@ class Funcionariocontroller extends CI_Controller {
     }
 
     public function novoProduto(){
-
+        $this->Session_funcionario();
         $this->load->view('funcionario/includes/header');
         $this->load->view('funcionario/includes/menu');
         $this->load->view('funcionario/produtos/novoProduto');
@@ -83,6 +90,7 @@ class Funcionariocontroller extends CI_Controller {
     }
 
     public function insereProduto(){
+        $this->Session_funcionario();
         $this->load->model('funcionarioModel','produto');
 
         if($this->produto->InsereProduto()){
@@ -95,12 +103,21 @@ class Funcionariocontroller extends CI_Controller {
     }
 
     public function delProduto($id=null){
+        $this->Session_funcionario();
         $this->load->model('funcionarioModel','exproduto');
 
         if($this->exproduto->delProduto($id)){
             redirect('produtos/3');
         }else{
             redirect('produtos/4');
+        }
+    }
+
+    public function LogoutUsuario(){
+        $this->load->model('loginModel','usuarios');
+
+        if($this->usuarios->LogoutUsuario()){
+            redirect('siteController/AreaFuncionario/3');
         }
     }
 
