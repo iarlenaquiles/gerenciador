@@ -74,7 +74,17 @@
 
         public function AtuDados($id=null){
             $this->db->where('idUsuario',$id);
-            return $this->db->get('usuarios')->result();
+            $data['usuario'] = $this->db->get('usuarios')->result();
+
+            if(count($data['usuario']) == 1){
+                $dados['idUsuario'] = $data['usuario'][0]->idUsuario;
+                $dados['nomeUsuario'] = $data['usuario'][0]->nomeUsuario;
+
+                $this->session->set_userdata($dados);
+                return true;
+            }else{
+                return false;
+            }
         }
 
         // Função de atualizar dados

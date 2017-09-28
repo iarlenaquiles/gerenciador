@@ -1,5 +1,6 @@
 <?php
   $nome = $_SESSION['nomeUsuario'];
+  $id = $_SESSION['idUsuario'];
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">

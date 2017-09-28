@@ -1,6 +1,8 @@
 <?php
-  $nome = $_SESSION['nomeUsuario'];
-  $id = $_SESSION['idUsuario'];
+  $nome = $this->session->userdata('nomeUsuario');
+  $id = $this->session->userdata('idUsuario');
+
+  //var_dump($id);
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
