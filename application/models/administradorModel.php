@@ -72,19 +72,19 @@
             return $this->db->get('usuarios')->result();
         }
 
-        public function AtuDados($id=null){
-            $this->db->where('idUsuario',$id);
-            $data['usuario'] = $this->db->get('usuarios')->result();
+        public function AtuDados($id){
+            $this->db->select("*");
+            $this->db->from("usuarios");
+            $this->db->where("idUsuario",$id);
+            $query = $this->db->get();
 
-            if(count($data['usuario']) == 1){
-                $dados['idUsuario'] = $data['usuario'][0]->idUsuario;
-                $dados['nomeUsuario'] = $data['usuario'][0]->nomeUsuario;
-
-                $this->session->set_userdata($dados);
-                return true;
+            if($query->num_rows() > 0){
+                $resultado = $query->result_array();
+                $resultado = $resultado[0];
             }else{
-                return false;
+                $resultado = null;
             }
+            return $resultado;
         }
 
         // Função de atualizar dados

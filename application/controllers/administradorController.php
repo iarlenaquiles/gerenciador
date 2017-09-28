@@ -24,15 +24,11 @@ class Administradorcontroller extends CI_Controller {
         $this->Session_funcionario();
         $this->load->model('administradorModel','usuario');
         $this->load->model('administradorModel','dinamic');
-        $data['atualiza'] = $this->usuario->AtuDados($id);
+        $data['usuario'] = $this->usuario->AtuDados($id);
         $data['nivelAcesso'] = $this->dinamic->dinamicSelect();
-        $data['usuario'][0]->idUsuario;
-        $data['usuario'][0]->nomeUsuario;
-
-        $this->session->set_userdata($dados);
 
         $this->load->view('administrador/configuracao/includes/header');
-       // $this->load->view('administrador/configuracao/includes/menu');
+        $this->load->view('administrador/configuracao/includes/menu');
         $this->load->view('administrador/configuracao/atualizaDados',$data);
         $this->load->view('administrador/configuracao/includes/footer');
     }

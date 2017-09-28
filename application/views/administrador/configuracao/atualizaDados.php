@@ -9,10 +9,10 @@
         <form action="<?=base_url('administradorController/AtualizarDados');?>" method="POST">
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="text" name="idUsuario" id="idUsuario" value="<?=$atualiza[0]->idUsuario;?>"/>
+                    <input type="text" name="idUsuario" id="idUsuario" value="<?=$usuario[0]->idUsuario;?>"/>
                     <label>Nome: </label>
                     <div class="has-error" id="div_nome">
-                        <input type="text" name="nomeUsuario" id="txtnome"  class="form-control" value="<?=$atualiza[0]->nomeUsuario;?>" autofocus required=""/>
+                        <input type="text" name="nomeUsuario" id="txtnome"  class="form-control" value="<?=$usuario[0]->nomeUsuario;?>" autofocus required=""/>
                         <span class="help-block">Informe o Nome</span>
                     </div>
                 </div>
